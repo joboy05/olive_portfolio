@@ -1,0 +1,13 @@
+
+> olive_portfolio@0.0.0 build
+> vite build
+
+vite v8.0.8 building client environment for production...
+[2Ktransforming...✓ 1982 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.46 kB │ gzip:   0.30 kB
+dist/assets/index-D18K6uv7.css   11.53 kB │ gzip:   2.74 kB
+dist/assets/index-3PUZbeyT.js   335.12 kB │ gzip: 106.04 kB
+
+✓ built in 5.02s
