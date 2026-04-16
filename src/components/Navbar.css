@@ -10,10 +10,11 @@
 
 .nav-scrolled {
   padding: 1rem 0;
-  background: rgba(5, 5, 5, 0.8);
+  background: var(--glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .nav-container {
@@ -85,7 +86,7 @@
   overflow: hidden;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: rgba(5, 5, 5, 0.95);
+  background: var(--bg-primary);
 }
 
 .nav-mobile-links {

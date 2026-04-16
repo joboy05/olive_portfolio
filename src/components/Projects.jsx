@@ -4,15 +4,23 @@ import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 import './Projects.css';
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'Assistude',
-      description: 'Un assistant WhatsApp innovant connectant freelances et entreprises sans friction. Développé pour simplifier le recrutement local.',
-      tags: ['PHP', 'Bootstrap', 'JavaScript', 'WhatsApp API'],
-      link: 'https://assistude.com/',
-      github: 'https://github.com/olivesanny2006-a11y/assistude',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800'
-    },
+  const featuredProject = {
+    title: 'Assistude',
+    subtitle: 'N°1 de la mise en relation Freelance sur WhatsApp au Bénin',
+    description: 'Assistude est une plateforme révolutionnaire qui connecte directement les talents (freelances) et les entreprises à travers WhatsApp. Le concept est simple : aucune application à télécharger, aucun formulaire complexe. Tout se passe via une conversation fluide. C\'est l\'outil indispensable pour dynamiser l\'économie locale et simplifier le recrutement de proximité.',
+    features: [
+      'Zéro barrière technologique (WhatsApp first)',
+      'Mise en relation instantanée',
+      'Focus sur les talents locaux du Bénin',
+      'Interface conversationnelle intuitive'
+    ],
+    tags: ['PHP', 'Bootstrap', 'JavaScript', 'WhatsApp API'],
+    link: 'https://assistude.com/',
+    github: 'https://github.com/olivesanny2006-a11y/assistude',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800'
+  };
+
+  const otherProjects = [
     {
       title: 'Lueur Jewelry',
       description: 'Maquette d\'un site e-commerce de luxe pour une marque de joaillerie. Focus sur le design épuré et l\'expérience utilisateur premium.',
@@ -66,19 +74,60 @@ const Projects = () => {
             transition={{ delay: 0.1 }}
             className="section-description"
           >
-            Une sélection de mes travaux récents, mêlant créativité et expertise technique.
+            Découvre mes réalisations, avec un focus particulier sur les solutions impactantes.
           </motion.p>
         </div>
 
+        {/* Featured Project */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="featured-project-card"
+        >
+          <div className="featured-image">
+            <img src={featuredProject.image} alt={featuredProject.title} />
+            <div className="featured-badge">Projet Vedette</div>
+          </div>
+          <div className="featured-content">
+            <div className="featured-header">
+              <span className="featured-label">Innovation WhatsApp</span>
+              <h2>{featuredProject.title}</h2>
+              <p className="featured-subtitle">{featuredProject.subtitle}</p>
+            </div>
+            <p className="featured-desc">{featuredProject.description}</p>
+            <ul className="featured-features">
+              {featuredProject.features.map((feature, i) => (
+                <li key={i}>{feature}</li>
+              ))}
+            </ul>
+            <div className="featured-footer">
+              <div className="project-tags">
+                {featuredProject.tags.map((tag, i) => (
+                  <span key={i} className="project-tag">{tag}</span>
+                ))}
+              </div>
+              <div className="featured-actions">
+                <a href={featuredProject.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  Voir le site <ExternalLink size={18} />
+                </a>
+                <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="btn-icon">
+                  <Github size={24} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         <div className="projects-grid">
-          {projects.map((project, i) => (
+          {otherProjects.map((project, i) => (
             <motion.div 
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="project-card glass"
+              className="project-card glass shadow-sm"
             >
               <div className="project-image">
                 <img src={project.image} alt={project.title} />

@@ -70,7 +70,7 @@
 }
 
 .form-group input, .form-group textarea {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-primary);
   border: 1px solid var(--border);
   padding: 1rem;
   border-radius: 12px;
@@ -83,7 +83,7 @@
 .form-group input:focus, .form-group textarea:focus {
   border-color: var(--accent);
   outline: none;
-  background: rgba(16, 185, 129, 0.05);
+  background: var(--bg-secondary);
 }
 
 .w-full {
