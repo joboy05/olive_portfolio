@@ -2,9 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageCircle, Github, MapPin, Send } from 'lucide-react';
 import BackgroundAnimations from './BackgroundAnimations';
+import { useThemeLang } from '../context/ThemeLangContext';
 import './Contact.css';
 
 const Contact = () => {
+  const { t } = useThemeLang();
   return (
     <section className="contact section-padding relative overflow-hidden" id="contact">
       <BackgroundAnimations type="skills" /> {/* Reuse skills (dots) for contact */}
@@ -16,7 +18,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="section-title"
           >
-            Parlons de votre <span className="accent-text">projet</span>
+            {t('contact.titlePart1')}<span className="accent-text">{t('contact.titlePart2')}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -25,7 +27,7 @@ const Contact = () => {
             transition={{ delay: 0.1 }}
             className="section-description"
           >
-            Prête à collaborer sur de nouvelles idées. N'hésitez pas à me contacter via l'un de ces canaux.
+            {t('contact.description')}
           </motion.p>
         </div>
 
@@ -64,8 +66,8 @@ const Contact = () => {
               <div className="contact-item">
                 <div className="contact-icon"><MapPin size={24} /></div>
                 <div>
-                  <h4>Localisation</h4>
-                  <p>Parakou, Banikanni, Bénin BJ</p>
+                  <h4>{t('contact.location')}</h4>
+                  <p>{t('contact.locationValue')}</p>
                 </div>
               </div>
             </div>
@@ -79,19 +81,19 @@ const Contact = () => {
           >
             <form className="contact-form glass" onSubmit={(e) => e.preventDefault()}>
               <div className="form-group">
-                <label>Nom Complet</label>
-                <input type="text" placeholder="John Doe" required />
+                <label>{t('contact.formName')}</label>
+                <input type="text" placeholder={t('contact.formPlaceholderName')} required />
               </div>
               <div className="form-group">
-                <label>Email</label>
+                <label>{t('contact.formEmail')}</label>
                 <input type="email" placeholder="john@example.com" required />
               </div>
               <div className="form-group">
-                <label>Message</label>
-                <textarea rows="5" placeholder="Votre message ici..." required></textarea>
+                <label>{t('contact.formMessage')}</label>
+                <textarea rows="5" placeholder={t('contact.formPlaceholderMessage')} required></textarea>
               </div>
               <button type="submit" className="btn btn-primary w-full">
-                Envoyer <Send size={18} />
+                {t('contact.btnSend')} <Send size={18} />
               </button>
             </form>
           </motion.div>

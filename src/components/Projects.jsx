@@ -3,18 +3,21 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 import assistudeImg from '../assets/projetfar.jpeg';
 import BackgroundAnimations from './BackgroundAnimations';
+import { useThemeLang } from '../context/ThemeLangContext';
 import './Projects.css';
 
 const Projects = () => {
+  const { t } = useThemeLang();
+
   const featuredProject = {
-    title: 'Assistude',
-    subtitle: 'N°1 de la mise en relation Freelance sur WhatsApp au Bénin',
-    description: 'Assistude est une plateforme révolutionnaire qui connecte directement les talents (freelances) et les entreprises à travers WhatsApp. Le concept est simple : aucune application à télécharger, aucun formulaire complexe. Tout se passe via une conversation fluide. C\'est l\'outil indispensable pour dynamiser l\'économie locale et simplifier le recrutement de proximité.',
+    title: t('projects.assistudeTitle'),
+    subtitle: t('projects.assistudeSubtitle'),
+    description: t('projects.assistudeDesc'),
     features: [
-      'Zéro barrière technologique (WhatsApp first)',
-      'Mise en relation instantanée',
-      'Focus sur les talents locaux du Bénin',
-      'Interface conversationnelle intuitive'
+      t('projects.feat1'),
+      t('projects.feat2'),
+      t('projects.feat3'),
+      t('projects.feat4')
     ],
     tags: ['PHP', 'Bootstrap', 'JavaScript', 'WhatsApp API'],
     link: 'https://assistude.com/',
@@ -24,32 +27,32 @@ const Projects = () => {
 
   const otherProjects = [
     {
-      title: 'Lueur Jewelry',
-      description: 'Maquette d\'un site e-commerce de luxe pour une marque de joaillerie. Focus sur le design épuré et l\'expérience utilisateur premium.',
+      title: t('projects.projFarm'),
+      description: t('projects.projFarmDesc'),
       tags: ['React', 'CSS Modules', 'Framer Motion'],
       link: '#',
       github: '#',
       image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800'
     },
     {
-      title: 'DashBoard IUT',
-      description: 'Interface d\'administration pour la gestion des notes et des emplois du temps au sein de l\'institut technologique.',
+      title: t('projects.projSecue'),
+      description: t('projects.projSecueDesc'),
       tags: ['JavaScript', 'Chart.js', 'HTML/CSS'],
       link: '#',
       github: '#',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
     },
     {
-      title: 'EduShare',
-      description: 'Plateforme collaborative permettant aux étudiants de partager et de consulter des ressources académiques en temps réel.',
+      title: t('projects.projScola'),
+      description: t('projects.projScolaDesc'),
       tags: ['PHP', 'MySQL', 'Bootstrap'],
       link: '#',
       github: '#',
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800'
     },
     {
-      title: 'EcoTrack',
-      description: 'Application conceptuelle de suivi d\'impact écologique pour les entreprises locales au Bénin.',
+      title: t('projects.projPortfo'),
+      description: t('projects.projPortfoDesc'),
       tags: ['React', 'Analyse UML', 'SEO'],
       link: '#',
       github: '#',
@@ -68,7 +71,7 @@ const Projects = () => {
             viewport={{ once: true }}
             className="section-title"
           >
-            Mes <span className="accent-text">Projets</span>
+            {t('projects.titlePart1')}<span className="accent-text">{t('projects.titlePart2')}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -77,7 +80,7 @@ const Projects = () => {
             transition={{ delay: 0.1 }}
             className="section-description"
           >
-            Découvre mes réalisations, avec un focus particulier sur les solutions impactantes.
+            {t('projects.description')}
           </motion.p>
         </div>
 
@@ -90,7 +93,7 @@ const Projects = () => {
         >
           <div className="featured-image">
             <img src={featuredProject.image} alt={featuredProject.title} />
-            <div className="featured-badge">Projet Vedette</div>
+            <div className="featured-badge">{t('projects.featured')}</div>
           </div>
           <div className="featured-content">
             <div className="featured-header">
@@ -112,7 +115,7 @@ const Projects = () => {
               </div>
               <div className="featured-actions">
                 <a href={featuredProject.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  Voir le site <ExternalLink size={18} />
+                  {t('projects.viewSite')} <ExternalLink size={18} />
                 </a>
                 <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="btn-icon">
                   <Github size={24} />

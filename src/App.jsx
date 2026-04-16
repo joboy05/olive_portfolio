@@ -5,9 +5,11 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import { useThemeLang } from './context/ThemeLangContext';
 import './App.css';
 
 function App() {
+  const { t } = useThemeLang();
   return (
     <div className="app">
       <Navbar />
@@ -21,7 +23,7 @@ function App() {
       <footer className="footer section-padding">
         <div className="container">
           <div className="footer-content">
-            <p>© 2026 Sanny Olive. Tous droits réservés.</p>
+            <p>{t('footer.rights')}</p>
             <div className="footer-links">
               <a href="https://github.com/olivesanny2006-a11y" target="_blank" rel="noopener noreferrer">GitHub</a>
               <a href="https://wa.me/2290169547835">WhatsApp</a>

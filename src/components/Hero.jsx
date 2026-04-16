@@ -2,10 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Mail } from 'lucide-react';
 import profileImg from '../assets/profile.png';
+import cvFile from '../assets/CV_Olive.jpeg';
 import BackgroundAnimations from './BackgroundAnimations';
+import { useThemeLang } from '../context/ThemeLangContext';
 import './Hero.css';
 
 const Hero = () => {
+  const { t } = useThemeLang();
+
   return (
     <section className="hero relative overflow-hidden" id="home">
       <BackgroundAnimations type="hero" />
@@ -18,7 +22,7 @@ const Hero = () => {
             className="hero-badge glass"
           >
             <span className="dot"></span>
-            Disponible pour nouveaux projets
+            {t('hero.availability')}
           </motion.div>
 
           <motion.h1 
@@ -27,8 +31,8 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="hero-title"
           >
-            Développeuse Web <br />
-            <span className="accent-text">Full-stack</span> Passionnée
+            {t('hero.title1')} <br />
+            <span className="accent-text">{t('hero.title2')}</span> {t('hero.title3')}
           </motion.h1>
 
           <motion.p 
@@ -37,7 +41,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="hero-description"
           >
-            Je suis <span className="highlight">Sanny Olive</span>, spécialisée dans la création d'expériences numériques modernes, sécurisées et performantes. Basée à Parakou, j'accompagne les entreprises dans leur transformation digitale.
+            {t('hero.description')}
           </motion.p>
 
           <motion.div 
@@ -47,10 +51,13 @@ const Hero = () => {
             className="hero-actions"
           >
             <a href="#projects" className="btn btn-primary">
-              Mes Projets <ArrowRight size={18} />
+              {t('hero.btnProjects')} <ArrowRight size={18} />
             </a>
             <a href="#contact" className="btn btn-secondary glass">
-              Me Contacter
+              {t('hero.btnContact')}
+            </a>
+            <a href={cvFile} download="CV_Sanny_Olive.jpeg" className="btn btn-secondary glass" style={{ padding: '0.6rem 1.2rem', gap: '0.5rem' }}>
+              <Download size={18} /> {t('hero.btnCV')}
             </a>
           </motion.div>
 
@@ -61,18 +68,18 @@ const Hero = () => {
             className="hero-stats"
           >
             <div className="stat-item">
-              <span className="stat-num">HTML/CSS</span>
-              <span className="stat-label">Maîtrise</span>
+              <span className="stat-num">{t('hero.stat1Title')}</span>
+              <span className="stat-label">{t('hero.stat1Desc')}</span>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <span className="stat-num">JS/PHP</span>
-              <span className="stat-label">Développement</span>
+              <span className="stat-num">{t('hero.stat2Title')}</span>
+              <span className="stat-label">{t('hero.stat2Desc')}</span>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <span className="stat-num">SEO/UML</span>
-              <span className="stat-label">Expertise</span>
+              <span className="stat-num">{t('hero.stat3Title')}</span>
+              <span className="stat-label">{t('hero.stat3Desc')}</span>
             </div>
           </motion.div>
         </div>

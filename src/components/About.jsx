@@ -2,26 +2,28 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, BookOpen, Heart } from 'lucide-react';
 import BackgroundAnimations from './BackgroundAnimations';
+import { useThemeLang } from '../context/ThemeLangContext';
 import './About.css';
 
 const About = () => {
+  const { t } = useThemeLang();
   const education = [
     {
-      year: '2026 (En cours)',
-      degree: 'Licence Professionnelle en Informatique de gestion',
-      school: "IUT de l'Université de Parakou",
+      year: `2026 ${t('about.ongoing')}`,
+      degree: t('about.degree1'),
+      school: t('about.school1'),
       icon: <GraduationCap size={24} />
     },
     {
       year: '2023',
-      degree: 'Baccalauréat série D',
-      school: 'CEG Yimporima, Natitingou',
+      degree: t('about.degree2'),
+      school: t('about.school2'),
       icon: <Award size={24} />
     }
   ];
 
-  const qualities = ['Curiosité intellectuelle', 'Discipline et rigueur', 'Sens du relationnel'];
-  const interests = ['Sport (Endurance)', 'Voyages et découvertes', 'Musique et Lecture'];
+  const qualities = t('about.qualities');
+  const interests = t('about.interests');
 
   return (
     <section className="about section-padding relative overflow-hidden" id="about">
@@ -34,7 +36,7 @@ const About = () => {
             viewport={{ once: true }}
             className="section-title"
           >
-            À propos de <span className="accent-text">moi</span>
+            {t('about.titlePart1')} <span className="accent-text">{t('about.titlePart2')}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -43,7 +45,7 @@ const About = () => {
             transition={{ delay: 0.1 }}
             className="section-description"
           >
-            Passionnée par l'innovation numérique et le développement durable, je mets mes compétences au service de projets ambitieux.
+            {t('about.description')}
           </motion.p>
         </div>
 
@@ -54,7 +56,7 @@ const About = () => {
             viewport={{ once: true }}
             className="about-education"
           >
-            <h3 className="sub-title">Mon Parcours</h3>
+            <h3 className="sub-title">{t('about.journeyTitle')}</h3>
             <div className="timeline">
               {education.map((item, i) => (
                 <div key={i} className="timeline-item glass">
@@ -76,7 +78,7 @@ const About = () => {
             className="about-details"
           >
             <div className="details-card glass">
-              <h3 className="sub-title"><BookOpen size={20} className="accent-text" /> Qualités</h3>
+              <h3 className="sub-title"><BookOpen size={20} className="accent-text" /> {t('about.qualitiesTitle')}</h3>
               <ul className="details-list">
                 {qualities.map((q, i) => (
                   <li key={i}>{q}</li>
@@ -85,7 +87,7 @@ const About = () => {
             </div>
 
             <div className="details-card glass">
-              <h3 className="sub-title"><Heart size={20} className="accent-text" /> Centres d'intérêt</h3>
+              <h3 className="sub-title"><Heart size={20} className="accent-text" /> {t('about.interestsTitle')}</h3>
               <ul className="details-list">
                 {interests.map((item, i) => (
                   <li key={i}>{item}</li>

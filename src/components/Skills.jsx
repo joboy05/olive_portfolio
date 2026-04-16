@@ -2,22 +2,24 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Layout, Search, Settings, FileCode, Monitor } from 'lucide-react';
 import BackgroundAnimations from './BackgroundAnimations';
+import { useThemeLang } from '../context/ThemeLangContext';
 import './Skills.css';
 
 const Skills = () => {
+  const { t } = useThemeLang();
   const skillGroups = [
     {
-      title: 'Développement Web',
+      title: t('skills.catWeb'),
       icon: <Code2 size={24} />,
-      skills: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'Bootstrap', 'React (En cours)']
+      skills: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'Bootstrap', `React ${t('skills.inProgress')}`]
     },
     {
-      title: 'Analyse & SEO',
+      title: t('skills.catAnalysis'),
       icon: <Search size={24} />,
       skills: ['Analyse UML', 'Référencement SEO', 'Optimisation Performance']
     },
     {
-      title: 'Outils & Systèmes',
+      title: t('skills.catTools'),
       icon: <Monitor size={24} />,
       skills: ['Pack Office', 'Windows', 'Git / GitHub', 'VS Code']
     }
@@ -34,7 +36,7 @@ const Skills = () => {
             viewport={{ once: true }}
             className="section-title"
           >
-            Mes <span className="accent-text">Compétences</span>
+            {t('skills.titlePart1')}<span className="accent-text">{t('skills.titlePart2')}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -43,7 +45,7 @@ const Skills = () => {
             transition={{ delay: 0.1 }}
             className="section-description"
           >
-            Un panel de technologies maîtrisées pour répondre à vos besoins numériques.
+            {t('skills.description')}
           </motion.p>
         </div>
 

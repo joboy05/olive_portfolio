@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Mail, MessageCircle } from 'lucide-react';
+import { Menu, X, Github, MessageCircle, Sun, Moon, Globe } from 'lucide-react';
+import { useThemeLang } from '../context/ThemeLangContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme, lang, toggleLang, t } = useThemeLang();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,9 +18,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Portfolio', href: '#projects' },
-    { name: 'À propos', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('navbar.portfolio'), href: '#projects' },
+    { name: t('navbar.about'), href: '#about' },
+    { name: t('navbar.contact'), href: '#contact' },
   ];
 
   return (
@@ -47,12 +49,18 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="nav-socials">
+            <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button onClick={toggleLang} className="lang-toggle" aria-label="Toggle Language">
+              <Globe size={18} /> <span className="lang-text">{lang.toUpperCase()}</span>
+            </button>
             <a href="https://github.com/olivesanny2006-a11y" target="_blank" rel="noopener noreferrer">
               <Github size={20} />
             </a>
             <a href="https://wa.me/2290169547835" className="nav-cta glass">
               <MessageCircle size={18} />
-              <span>WhatsApp</span>
+              <span>{t('navbar.whatsapp')}</span>
             </a>
           </div>
         </div>
@@ -79,8 +87,18 @@ const Navbar = () => {
                 </li>
               ))}
               <li className="nav-mobile-cta">
+                <button onClick={toggleTheme} className="mobile-toggle-btn">
+                  {theme === 'dark' ? <><Sun size={18}/> Mode Clair</> : <><Moon size={18}/> Mode Sombre</>}
+                </button>
+              </li>
+              <li className="nav-mobile-cta">
+                <button onClick={toggleLang} className="mobile-toggle-btn">
+                  <Globe size={18} /> {lang === 'fr' ? 'English' : 'Français'}
+                </button>
+              </li>
+              <li className="nav-mobile-cta">
                 <a href="https://wa.me/2290169547835" className="accent-text">
-                  <MessageCircle size={20} /> WhatsApp
+                  <MessageCircle size={20} /> {t('navbar.whatsapp')}
                 </a>
               </li>
             </ul>
