@@ -1,12 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Mail } from 'lucide-react';
+import profileImg from '../assets/profile.png';
+import BackgroundAnimations from './BackgroundAnimations';
 import './Hero.css';
 
 const Hero = () => {
   return (
-    <section className="hero" id="home">
-      <div className="container hero-container">
+    <section className="hero relative overflow-hidden" id="home">
+      <BackgroundAnimations type="hero" />
+      <div className="container hero-container relative z-1">
         <div className="hero-content">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -81,9 +84,7 @@ const Hero = () => {
           className="hero-visual"
         >
           <div className="image-wrapper">
-             <div className="avatar-fallback">
-                <span>SO</span>
-             </div>
+             <img src={profileImg} alt="Sanny Olive" className="profile-photo" />
              <div className="glow-effect"></div>
           </div>
         </motion.div>

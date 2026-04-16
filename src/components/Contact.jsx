@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageCircle, Github, MapPin, Send } from 'lucide-react';
+import BackgroundAnimations from './BackgroundAnimations';
 import './Contact.css';
 
 const Contact = () => {
   return (
-    <section className="contact section-padding" id="contact">
-      <div className="container">
+    <section className="contact section-padding relative overflow-hidden" id="contact">
+      <BackgroundAnimations type="skills" /> {/* Reuse skills (dots) for contact */}
+      <div className="container relative z-1">
         <div className="section-header">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}

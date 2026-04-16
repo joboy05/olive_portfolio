@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Layout, Search, Settings, FileCode, Monitor } from 'lucide-react';
+import BackgroundAnimations from './BackgroundAnimations';
 import './Skills.css';
 
 const Skills = () => {
@@ -23,8 +24,9 @@ const Skills = () => {
   ];
 
   return (
-    <section className="skills section-padding" id="skills">
-      <div className="container">
+    <section className="skills section-padding relative overflow-hidden" id="skills">
+      <BackgroundAnimations type="skills" />
+      <div className="container relative z-1">
         <div className="section-header">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}

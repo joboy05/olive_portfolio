@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import assistudeImg from '../assets/projetfar.jpeg';
+import BackgroundAnimations from './BackgroundAnimations';
 import './Projects.css';
 
 const Projects = () => {
@@ -17,7 +19,7 @@ const Projects = () => {
     tags: ['PHP', 'Bootstrap', 'JavaScript', 'WhatsApp API'],
     link: 'https://assistude.com/',
     github: 'https://github.com/olivesanny2006-a11y/assistude',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800'
+    image: assistudeImg
   };
 
   const otherProjects = [
@@ -56,8 +58,9 @@ const Projects = () => {
   ];
 
   return (
-    <section className="projects section-padding" id="projects">
-      <div className="container">
+    <section className="projects section-padding relative overflow-hidden" id="projects">
+      <BackgroundAnimations type="projects" />
+      <div className="container relative z-1">
         <div className="section-header">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}

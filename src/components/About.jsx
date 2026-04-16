@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, BookOpen, Heart } from 'lucide-react';
+import BackgroundAnimations from './BackgroundAnimations';
 import './About.css';
 
 const About = () => {
@@ -23,8 +24,9 @@ const About = () => {
   const interests = ['Sport (Endurance)', 'Voyages et découvertes', 'Musique et Lecture'];
 
   return (
-    <section className="about section-padding" id="about">
-      <div className="container">
+    <section className="about section-padding relative overflow-hidden" id="about">
+      <BackgroundAnimations type="about" />
+      <div className="container relative z-1">
         <div className="section-header">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
