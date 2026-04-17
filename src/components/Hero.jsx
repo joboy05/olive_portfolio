@@ -15,15 +15,7 @@ const Hero = () => {
       <BackgroundAnimations type="hero" />
       <div className="container hero-container relative z-1">
         <div className="hero-content">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="hero-badge glass"
-          >
-            <span className="dot"></span>
-            {t('hero.availability')}
-          </motion.div>
+
 
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
